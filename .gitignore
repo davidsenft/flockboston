@@ -1,0 +1,12 @@
+httpdocs/var/cache/**/*
+httpdocs/var/session/**/*
+httpdocs/var/session/*
+httpdocs/var/log/*
+httpdocs/var/locks/*
+httpdocs/var/report/*
+httpdocs/media/catalog/product/cache/**/*
+httpdocs/media/js/*
+httpdocs/media/css/*.css
+httpdocs/errors/local.xml
+httpdocs/app/etc/local.xml
+.DS_Store
