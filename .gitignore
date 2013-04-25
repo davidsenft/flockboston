@@ -1,3 +1,6 @@
+app/code/core/
+files_blanco_theme/
+files_design_from_elise/
 var/cache/**/*
 var/session/**/*
 var/session/*

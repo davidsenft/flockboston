@@ -1,33 +1,3 @@
-/**
- * Magento
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
- *
- * @category    Varien
- * @package     js
- * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
-
-/**
- * @classDescription simple Navigation with replacing old handlers
- * @param {String} id id of ul element with navigation lists
- * @param {Object} settings object with settings
- */
 var mainNav = function() {
 
     var main = {
@@ -128,5 +98,36 @@ document.observe("dom:loaded", function() {
     //mainNav();
 
     //run navigation with delays
-    mainNav("nav", {"show_delay":"100","hide_delay":"100"});
+    mainNav("nav", {"show_delay":"200","hide_delay":"200"});
+   /* Mobile navigation
+    -------------------------------------------------------------- */
+    
+    menuTitle = "Menu";
+    
+    var navList = jQuery('ul#nav').clone();
+    var etOpener = '<span class="open-child">(open)</span>';
+    navList.removeAttr('id').removeClass('menu').addClass('et-mobile-menu');
+    
+    navList.before('<span class="et-menu-title">' + menuTitle + '</span>');
+    
+    
+	navList.find('li:has(ul)',this).each(function() {
+		jQuery(this).prepend(etOpener);
+	})
+    
+    navList.find('.open-child').toggle(function(){
+        jQuery(this).parent().addClass('over').find('>ul').slideDown(200);
+    },function(){
+        jQuery(this).parent().removeClass('over').find('>ul').slideUp(200);
+    });
+    
+    
+    
+    jQuery('ul#nav').after(navList).after('<span class="et-menu-title">' + menuTitle + '</span>');
+    
+    jQuery('.et-menu-title').toggle(function(){
+        jQuery(this).next().slideDown(200);
+    },function(){
+        jQuery(this).next().slideUp(200);
+    });
 });
