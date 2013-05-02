@@ -7,9 +7,11 @@ var/session/*
 var/log/*
 var/locks/*
 var/report/*
+media/catalog/product/
 media/catalog/product/cache/**/*
 media/js/*
 media/css/*.css
+skin/frontend/default/blanco/flockimages/
 errors/local.xml
 app/etc/local.xml
 .DS_Store

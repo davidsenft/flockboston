@@ -1,9 +1,11 @@
 <?php
-$imgSize = $this->getSize();
+/* flock edit from imgSize to imgWidth, then added Height */
+$imgWidth = $this->getSize();
+$imgHeight = $imgWidth * 3/2;
 if(count($this->getGalleryImages()) > 1){
 $i=0; 
 foreach($this->getGalleryImages() as $_image): 
-$image = $this->helper('catalog/image')->init($this->getProduct(), 'small_image', $_image->getFile())->resize($imgSize);
+$image = $this->helper('catalog/image')->init($this->getProduct(), 'small_image', $_image->getFile())->resize($imgWidth,$imgHeight);
 if($this->htmlEscape($_image->getLabel()) == 'back'){
 $i++;
 if($i == 1){

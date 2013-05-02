@@ -785,6 +785,38 @@ Product.Configurable.prototype = {
         var params = Form.serializeElements($(this.idPrefix + 'simple_form')
                 .select('input', 'select', 'textarea'), true);
         params.form_key = FORM_KEY;
+
+        /* SUPER BADASS FLOCK EDIT */
+        if (params.hasOwnProperty("simple_product[size_even]")){
+            // even sizes
+            var actual_size = params["simple_product[size_even]"];
+            var size_chart = {
+                83: "217",          /* 0 */
+                82: "218",          /* 2 */
+                81: "219",          /* 4 */
+                80: "220",          /* 6 */
+                79: "221",          /* 8 */
+                78: "222",          /* 10 */
+                77: "223"           /* 12 */
+            }
+        }else if (params.hasOwnProperty("simple_product[size_letter]")){
+            // letter sizes
+            var actual_size = params["simple_product[size_letter]"];
+            var size_chart = {
+                84: "217,218",      /* XS */
+                85: "218,219",      /* S */
+                86: "219,220,221",  /* M */
+                87: "221,222,223",  /* L */
+                88: "223",          /* XL */
+                92: "217,218",      /* XS/S */
+                91: "219,220",      /* S/M */
+                90: "220,221,222",  /* M/L */
+                89: "222,223"       /* L/XL */
+            }
+        }
+        var search_size = size_chart[actual_size];
+        params["simple_product[size_search]"] = "" + search_size;
+
         $('messages').update();
         new Ajax.Request(this.createQuickUrl, {
             parameters :params,

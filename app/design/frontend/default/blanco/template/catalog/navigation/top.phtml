@@ -15,13 +15,33 @@
 <div class="nav-container">
     <div class="right-bg">
         <ul id="nav">
-            <li class="level0 first homelink"><a href="<?php echo $this->getBaseUrl(); ?>"><span><?php echo $this->__('Home') ?></span></a></li>
+            <!-- FLOCK EDIT: <li class="level0 first homelink"><a href="<?php echo $this->getBaseUrl(); ?>"><span><?php echo $this->__('Home') ?></span></a></li> -->
+
+            <li class="level0 nav-0 first">
+                <a href="#" class="level-top">
+                    <span>New</span>
+                </a>
+            </li>
+
             <?php if($_menu): ?>
                 <?php echo $_menu ?>
             <?php endif ?>
+
+            <!-- FLOCK EDIT: extra links -->
+            <li class="level0 nav-5 level-top">
+                <a href="#" class="level-top">
+                    <span class='sale-color'>Sale</span>
+                </a>
+            </li>
+            <li class="level0 nav-6 level-top">
+                <a href="#" class="level-top">
+                    <span>About</span>
+                </a>
+            </li>
+
+
             <?php $additionalLink = themeOptions('additionalLink'); ?>
             <?php $additionalLinkUrl = themeOptions('additionalLinkUrl'); ?>
-
             <?php if ($block1 = $this->getChildHtml('nav_block1')): ?>
                 <?php $block1Title = Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load('nav_block1')->getTitle(); ?>
             	<li class="level0 block_li parent">

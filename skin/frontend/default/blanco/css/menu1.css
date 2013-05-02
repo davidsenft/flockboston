@@ -11,7 +11,8 @@
 #nav a { float:left; }
 .blocklist li,
 #nav ul.chield > li { display:block; float:left; padding: 0 10px 0 0; }
-#nav .chield { width: 928px; border:1px solid #acacac; border-top: 4px solid #ACACAC; }
+/* FLOCK EDIT: 928 to 908 */
+#nav .chield { width: 908px; border:1px solid #acacac; border-top: 4px solid #ACACAC; }
 /* 1st Level */
 #nav ul li.parent { }
 #nav ul li.last { padding-bottom:0; }

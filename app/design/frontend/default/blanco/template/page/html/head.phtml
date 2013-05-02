@@ -222,7 +222,7 @@ a:hover,
 .products-grid li.item:hover a,
 .newproducts li.item:hover a,
 .related li.item:hover a,
-.saleproduct  
+.saleproduct
 ';
 
 $selectors['active_color_imp'] = '.special-price .price';
@@ -275,6 +275,10 @@ $selectors['brown_bg'] = '
 .blocklist > li > ul > li,
 .left-categorys-container a,
 #nav > li > ul > li ul > li';
+
+/* FLOCK EDIT */
+$selectors['active_color'] .= ',.active-color';
+$selectors['active_bg'] .= ',.active-bg';
 
 if(!function_exists('jsString')){
     function jsString($str='') { 

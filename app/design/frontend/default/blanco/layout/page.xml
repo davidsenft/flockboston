@@ -27,9 +27,14 @@ Default layout, loads most of the pages
                 <action method="addJs"><script>mage/cookies.js</script></action>
                 <action method="addJs"><script>jquery/func.js</script></action>
                 <action method="addJs"><script>jqforms/jquery.jqtransform.js</script></action>
+                <action method="addItem"><type>skin_js</type><name>js/flock.js</name></action>
 
+                <!-- FLOCK EDIT -->
+                <action method="addCss"><stylesheet>fonts/pisak.css</stylesheet></action>
                 <action method="addCss"><stylesheet>css/jqtransform.css</stylesheet></action>
                 <action method="addCss"><stylesheet>css/styles.css</stylesheet></action>
+                <!-- FLOCK EDIT -->
+                <action method="addCss"><stylesheet>flockcss/styles.css</stylesheet></action>
                 <action method="addItem"><type>skin_css</type><name>css/styles-ie.css</name><params/><if>lt IE 8</if></action>
                 <action method="addCss"><stylesheet>css/widgets.css</stylesheet></action>
                 <action method="addCss"><stylesheet>css/print.css</stylesheet><params>media="print"</params></action>
@@ -44,25 +49,36 @@ Default layout, loads most of the pages
 
             <block type="page/html_notices" name="global_notices" as="global_notices" template="page/html/notices.phtml" />
 
+            <!-- FLOCK EDIT: moved this from below -->
+            <block type="page/html_wrapper" name="top.bar" as="topBar" translate="label">
+                <action method="setElementClass"><value>top-bar</value></action>
+            </block> 
+
+            <!-- FLOCK EDIT: also moved this from below -->
+            <block type="page/switch" name="store_language" as="store_language" template="page/switch/languages.phtml"/>
+            <block type="page/switch" name="store_switcher" as="store_switcher" template="page/switch/stores.phtml"/>
+            <block type="page/template_links" name="top.links" as="topLinks"/>
+
             <block type="page/html_header" name="header" as="header">
                 <block type="core/text_list" name="top.menu" as="topMenu" translate="label">
                     <label>Navigation Bar</label>
                 </block>
-                <block type="page/switch" name="store_language" as="store_language" template="page/switch/languages.phtml"/>
-                <block type="page/switch" name="store_switcher" as="store_switcher" template="page/switch/stores.phtml"/>
-                <block type="page/template_links" name="top.links" as="topLinks"/>
-                <block type="page/html_wrapper" name="top.bar" as="topBar" translate="label">
-                    <action method="setElementClass"><value>top-bar</value></action>
-                </block>   
+                
+
+                <!-- FLOCK EDIT: moved top bar from here -->
+
                 <block type="page/html_wrapper" name="top.bread" as="topBread" translate="label">
                     <label>Breadcrumbs</label>
                     <action method="setElementClass"><value>top-bread</value></action>
                     <block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
-                </block>                             
+                </block>
+
+                <!-- TODO: move this? -->                           
                 <block type="page/html_wrapper" name="top.container" as="topContainer" translate="label">
                     <label>Page Header</label>
                     <action method="setElementClass"><value>top-container</value></action>
                 </block>
+
             </block>
 
             <block type="core/text_list" name="left" as="left" translate="label">

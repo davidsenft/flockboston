@@ -248,8 +248,8 @@ Product view
                 <action method="setTierPriceTemplate"><template>catalog/product/view/tierprices.phtml</template></action>
 
                 <block type="catalog/product_view_tabs" name="product.info.tabs" as="info_tabs" template="catalog/product/view/tabs.phtml" >
-                    <action method="addTab" translate="title" module="catalog"><alias>description</alias><title>Product Description</title><block>catalog/product_view_description</block><template>catalog/product/view/description.phtml</template></action>
-                    <action method="addTab" translate="title" module="catalog"><alias>additional</alias><title>Additional Information</title><block>catalog/product_view_attributes</block><template>catalog/product/view/attributes.phtml</template></action>
+                    <action method="addTab" translate="title" module="catalog"><alias>description</alias><title>Details</title><block>catalog/product_view_description</block><template>catalog/product/view/description.phtml</template></action>
+                    <action method="addTab" translate="title" module="catalog"><alias>additional</alias><title>Additional</title><block>catalog/product_view_attributes</block><template>catalog/product/view/attributes.phtml</template></action>
                     <action method="addTab" translate="title" module="review"><alias>product_review</alias><title>Reviews</title><block>review/product_view_list</block><template>review/product/view/list.phtml</template></action>                
                     <block type="cms/block" name="product_custom_tab">
                     	<action method="setBlockId"><block_id>product_custom_tab</block_id></action>
@@ -279,15 +279,15 @@ Product view
                 </block>
                 <block type="catalog/product_view" name="product.info.options.wrapper.bottom" as="product_options_wrapper_bottom" template="catalog/product/view/options/wrapper/bottom.phtml" translate="label">
                     <label>Bottom Block Options Wrapper</label>
-                    <action method="insert"><block>product.tierprices</block></action>
-                    <block type="catalog/product_view" name="product.clone_prices" as="prices" template="catalog/product/view/price_clone.phtml"/>
+                    <!-- FLOCK EDIT <action method="insert"><block>product.tierprices</block></action>
+                    <block type="catalog/product_view" name="product.clone_prices" as="prices" template="catalog/product/view/price_clone.phtml"/> -->
                     <action method="append"><block>product.info.addtocart</block></action>
                     <action method="append"><block>product.info.addto</block></action>
                 </block>
                 
                 <block type="catalog/product_view" name="product.info.options.wrapper.bottom2" as="product_options_wrapper_bottom2" template="catalog/product/view/options/wrapper/bottom.phtml" translate="label">
                     <label>Bottom Block Options Wrapper</label>
-                    <action method="insert"><block>product.tierprices</block></action>
+                    <!-- FLOCK EDIT <action method="insert"><block>product.tierprices</block></action> -->
                     <action method="append"><block>product.info.addtocart</block></action>
                     <action method="append"><block>product.info.addto</block></action>
                 </block>

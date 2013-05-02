@@ -7,7 +7,20 @@
 <?php echo $this->getChildHtml('after_body_start') ?>
 <div class="wrapper wrapper-<?php echo themeOptions('sitelayout') ?>">
     <?php echo $this->getChildHtml('global_notices') ?>
-    <div class="page">
+
+    <!-- FLOCK EDIT -->
+    <div id="top">
+        <div class="page">
+            <!-- <span class="welcome-msg"><?php echo $this->getWelcome() ?></span> -->
+            <?php echo $this->getChildHtml('topBar') ?>
+            <div class="minicart">
+                <?php echo $this->getChildHtml('top_cart') ?>
+            </div>
+            <?php echo $this->getChildHtml('topLinks') ?>  
+        </div>
+    </div>
+
+    <div id="page" class="page">
         <?php echo $this->getChildHtml('header') ?>
         <div class="main-container col1-layout">
             <div class="main">

@@ -9,8 +9,8 @@ Default layout, loads most of the pages
         <!-- Mage_Checkout -->
         <reference name="top.links">
             <block type="checkout/links" name="checkout_cart_link">
-                <action method="addCartLink"></action>
-                <action method="addCheckoutLink"></action>
+                <!-- FLOCK EDIT <action method="addCartLink"></action> -->
+                <!-- FLOCK EDIT <action method="addCheckoutLink"></action> -->
             </block>
         </reference>
         <reference name="left">
@@ -26,7 +26,8 @@ Default layout, loads most of the pages
         <reference name="head">
             <block type="core/template" name="optional_zip_countries" as="optional_zip_countries" template="directory/js/optional_zip_countries.phtml" />
         </reference>
-        <reference name="header">
+        <!-- FLOCK EDIT: changed from header to root -->
+        <reference name="root">
             <block type="checkout/cart_header" name="top_cart" template="checkout/cart/mini_cart_top.phtml" before="-">
                 <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
                 <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>

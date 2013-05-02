@@ -1,104 +1,17 @@
-------------------------------------
-NOTES
-------------------------------------
 
-THINGS TO BRING UP / ASK:
- - Looks like go daddy web hosting wasn't cancelled
- - $100 free AdWords credits
- - Deposit?
- X Go over mockup -- "New" --> Any need for blog content to be mixed in with store stuff?
- - Is alternate lookup the same as SKU?
- - Go over category breakdown.
- - What do you like about "Shopper"?
- - Keep synced with QB as much as possible -- Misspells: "Lightening", "Handbag", "candles", "flowers"
- - I can make up SKUs and keep track of them...
- - What do you want people to be able to search for? e.g. "green" or "small" or just product keywords?
- - Ok to normalize "Small" vs. "S" in dropdowns? Preference?
+--------------------------------------------------------
+ADDING A NEW PRODUCT
+--------------------------------------------------------
 
-
-
-
-STUFF I'LL NEED
- - Product descriptions (option for short and long)
- - Photos for categories? Descriptions for categories?
- - If we're going to charge variable shipping, we need product weight!
-
-
-CATEGORIES
---------------
-Clothes (or "Apparel"?)
-
-Accessories
-	- Jewelry
-	- Makeup XXX
-	- Handbags = "Handbag"
-
-Shoes
-
-Home
-	- Stationary
-	- Candles = "candles"
-
-SALE
-
-EXTRA:
-	- Miscellaneous XXX
-	- Pets XXX
-	- flowers XXX
-
-
-PRODUCT CHANGES
---------------
-- Exclude some categories
-- Reassign or fix categories
-- Names to uppercase (except iPad, iPhone etc.)
-
-EXAMPLE
------------
-Amy Long Sleeve V-Neck in White/Black
-
-NEW NOTES FROM MEETING
-----------------------
-- Make sure theme supports Blog
-
-
-
-------------------------------------
-LOGINS
-------------------------------------
-
-GODADDY
-27124599
-roscoedog
-
-HOST GATOR
-usr: flock
-security: 143143
-1tvStP>y9ggs
-50.97.104.120
-reference: R0I0Z2186984881
-
-MAGENTO
-http://flockboston.com/admin
-usr: admin
-pass: pmJyqJDmao6tFrkx
-
-------------------------------------
-LOG
-------------------------------------
-
-THINGS I DID:
- - bought the web host
- - magento.flockboston.com goes to new hostgator server for now
- - changed both base urls on hostgator db to magento.flockboston.com
-
-THINGS I NEED TO DO:
- - password protect new site at magento.flockboston.com
- - make sure timezone is correct!
- - attribute_set
-
-Things I am currently the contact for:
- - Magento Admin
- - Hostgator Billing
-
-
+1. Catalog -> Manage Products -> Add Product
+2. Select the appropriate "Attribute Set"
+3. Select "Configurable Product" if there are multiple options (e.g. size and color) or "Simple Product" if the product only comes in one option
+4. (ONLY IF THE PRODUCT IS CONFIGURABLE) Select which attributes have multiple options that shoppers can choose from (e.g. size, color, or both)
+5. Enter all required information on the "General" tab
+	> Name, descriptions, SKU, Status: "Enabled", Visibility: "Catalog, Search"
+6. Enter the product's price and tax class on the "Price" tab
+7. Upload images on the "Images" tab, then:
+	> Choose base image (the default image on the product page)
+	> Choose thumbnail image (when the image is small--probably same as base image)
+	> Type "back" as the label for the alternate image that should show when hovering
+8. Set inventory as "In Stock" on the "Inventory" tab

@@ -3,10 +3,12 @@
     public function toOptionArray()
     {
         return array(
-            array('value'=>'default', 'label'=>Mage::helper('ExtraConfig')->__('Default')),
+            /* array('value'=>'default', 'label'=>Mage::helper('ExtraConfig')->__('Default')),
             array('value'=>'horizontal', 'label'=>Mage::helper('ExtraConfig')->__('Horizontal')),
-            array('value'=>'vertical', 'label'=>Mage::helper('ExtraConfig')->__('Vertical'))   
+            array('value'=>'vertical', 'label'=>Mage::helper('ExtraConfig')->__('Vertical')),
+            // FLOCK EDIT */
+            array('value'=>'flock', 'label'=>Mage::helper('ExtraConfig')->__('Flock'))
         );
     }
 
-}?>
+} ?>

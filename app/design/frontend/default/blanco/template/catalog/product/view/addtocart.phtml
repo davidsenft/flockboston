@@ -4,9 +4,9 @@
     <div class="add-to-cart">
         <?php if(!$_product->isGrouped()): ?>
         <div class="quanitybox">         
-            <label for="qty"><?php echo $this->__('Qty:') ?></label>
+            <label for="qty"><?php echo $this->__('Quantity:') ?></label>
             <input type="button" class="quantity_box_button_down" onclick="qtyDown()" />         
-            <input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
+            <input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Quantity') ?>" class="input-text qty" />
             <input type="button" class="quantity_box_button_up" onclick="qtyUp()" />
         </div>
         <?php endif; ?>

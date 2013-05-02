@@ -92,17 +92,37 @@ LOG
 ------------------------------------
 
 THINGS I DID:
- - bought the web host
- - magento.flockboston.com goes to new hostgator server for now
- - changed both base urls on hostgator db to magento.flockboston.com
- - fixed Configurable.php as per http://razoyo.com/main/?q=blog/magento-17-configurable-product-export-fix
- - bought/installed Blanco for $87
- - favicon
+- Bought the hostgator web host
+- Directed magento.flockboston.com to new hostgator public_html for now
+- Changed both base urls on hostgator db to magento.flockboston.com
+- Fixed Configurable.php export {
+	as per http://razoyo.com/main/?q=blog/magento-17-configurable-product-export-fix
+	}
+- Bought/installed Blanco for $87
+- Made new Flock favicon
+- Made templates/page/template/links.phtml to test edits, but probably don't need it
+- Removed horizontal/vertical config options for product pages {
+	- first tried extra config option "Flock"
+	- then removed config options (only option is "Flock") entirely from:
+		- ThemeOptions/ExtraConfig/Model/Productpages
+		- blanco/template/catalog/product/view
+		- blanco/template/catalog/product/view/media
+
+	}
+- Item number in basket instead of price
+- Removed "tier price" on configurable options page
+- admin boxes.css header thing: background:#eee; box-shadow:0 0 5px 5px rgba(60,60,60,0.4);
+	- This will probably be lost with an update to magento
+- removed magento go promo link from admin header.phtml 
+	- This will probably be lost with an update to magento
+
 
 TO DO:
  - password protect new site at magento.flockboston.com
  - attribute_set?
  - product image placeholders?
+ - responsive stuff (top bar, no in-between sizes?)
+ - qty starts at 1
 
 Things I am currently the contact for:
  - Magento Admin
@@ -110,10 +130,35 @@ Things I am currently the contact for:
 
 BEFORE LAUNCH
  - set robots to index, follow
+ - change "blanco" to "flock" everywhere
+ - merge css/js?
+ - remove <!-- FLOCK EDIT --> tags
+ - enable all cache
+ - translations?
+ - products disabled by default
 
-THINGS I NEED FROM FLOCK
+THINGS TO GO OVER WITH FLOCK
+ - General cache stuff
+ - Dropdowns?
+ - Basket icon?
+ - Pant sizing for any accessories?
+ - Different color sets for home/shoes/accessories/etc.
  - Meta description
  - Scroll to top link?
+ - No short description
+ - Home "goods"?
+ - Products per page / Grid vs. List options
+ - Compare products?
+ - Tax class? (I can set default)
+ - New and sale on front page
+ - Languages and currencies
+ - Show items out of stock? NO
+ - "Pant size" vs. "Denim"?
+ - Backorder?
+ - Gift wrapping?
+ - Bundles?
+ - Tier prices?
+ - Search sizing automatic except for 0-3 weird sizes
 
-
+Beacon Merchant Services
 

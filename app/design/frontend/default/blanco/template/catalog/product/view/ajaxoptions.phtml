@@ -76,8 +76,9 @@
             error: function(data){
             },
             success : function(data,statusText,xhr ){
+                console.log('ajaxsuccess');
                 jQuery('#ajax_loader').hide();
-                parent.setAjaxData(data,true,<?php echo $_product->getId() ?>);                                
+                parent.setAjaxData(data,true,<?php echo $_product->getId() ?>);
             }
         });     
     

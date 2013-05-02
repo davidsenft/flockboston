@@ -1,4 +1,5 @@
 <?php
+    /* FLOCK EDITING THIS WHOLE SHEBANG */
     $_productCollection=$this->getLoadedProductCollection();
     $columnCount = themeOptions('column_count');
     $hoverSwap = themeOptions('hover_swap');
@@ -14,16 +15,16 @@
     <?php // List mode ?>
     <?php if($this->getMode()!='grid'): ?>
     <?php $_iterator = 0; ?>
-    <?php $imgSize = 192; ?>
+    <?php $imgWidth = 192; $imgHeight = 192 * 3/2; ?>
     <ol class="products-list" id="products-list">
     <?php foreach ($_productCollection as $_product): ?>
         <li class="item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?>">
             <?php include('view/labels.phtml')  ?>   
-            <?php $mainImg = $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgSize); ?>
-            <?php if($hoverSwap): $backImg = $this->getLayout()->createBlock("ajax/listmedia")->setTemplate("catalog/product/list/media.phtml")->setData('size', $imgSize)->setData('product', $_product)->toHtml(); endif; ?>               
+            <?php $mainImg = $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgWidth,$imgHeight); ?>
+            <?php if($hoverSwap): $backImg = $this->getLayout()->createBlock("ajax/listmedia")->setTemplate("catalog/product/list/media.phtml")->setData('size', $imgWidth)->setData('product', $_product)->toHtml(); endif; ?>               
             <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
-                <?php if($backImg != 'null' && $backImg): ?><img src="<?php echo $backImg ?>" width="<?php echo $imgSize ?>" height="<?php echo $imgSize ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /><?php endif; ?>
-                <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgSize) ?>" <?php if($backImg != 'null' && $backImg): ?>onmouseover="hideImage(this)" onmouseout="showImage(this)"<?php endif; ?> width="<?php echo $imgSize ?>" height="<?php echo $imgSize ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                <?php if($backImg != 'null' && $backImg): ?><img src="<?php echo $backImg ?>" width="<?php echo $imgWidth ?>" height="<?php echo $imgHeight ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /><?php endif; ?>
+                <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgWidth,$imgHeight) ?>" <?php if($backImg != 'null' && $backImg): ?>onmouseover="hideImage(this)" onmouseout="showImage(this)"<?php endif; ?> width="<?php echo $imgWidth ?>" height="<?php echo $imgHeight ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
             </a>
         
              <?php // Product description ?>
@@ -81,10 +82,11 @@
         $_columnCount = $this->getColumnCount(); 
         
         if($_columnCount == 4){
-            $imgSize = 170;
+            $imgWidth = 170;
         }elseif($_columnCount == 3){
-            $imgSize = 245;
+            $imgWidth = 245;
         }
+        $imgHeight = $imgWidth * 3/2;
     
     ?>
     <div class="products-list-grid columns<?php echo $_columnCount ?>">
@@ -94,11 +96,11 @@
                     <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
                 <?php endif; ?>
                 <?php include('view/labels.phtml')  ?>
-                <?php $mainImg = $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgSize); ?>
-                <?php if($hoverSwap): $backImg = $this->getLayout()->createBlock("ajax/listmedia")->setTemplate("catalog/product/list/media.phtml")->setData('size', $imgSize)->setData('product', $_product)->toHtml(); endif; ?>               
+                <?php $mainImg = $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgWidth,$imgHeight); ?>
+                <?php if($hoverSwap): $backImg = $this->getLayout()->createBlock("ajax/listmedia")->setTemplate("catalog/product/list/media.phtml")->setData('size', $imgWidth)->setData('product', $_product)->toHtml(); endif; ?>               
                 <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
-                    <?php if($backImg != 'null' && $backImg): ?><img src="<?php echo $backImg ?>" width="<?php echo $imgSize ?>" height="<?php echo $imgSize ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /><?php endif; ?>
-                    <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgSize) ?>" <?php if($backImg != 'null' && $backImg): ?>onmouseover="hideImage(this)" onmouseout="showImage(this)"<?php endif; ?> width="<?php echo $imgSize ?>" height="<?php echo $imgSize ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                    <?php if($backImg != 'null' && $backImg): ?><img src="<?php echo $backImg ?>" width="<?php echo $imgWidth ?>" height="<?php echo $imgHeight ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /><?php endif; ?>
+                    <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgWidth,$imgHeight) ?>" <?php if($backImg != 'null' && $backImg): ?>onmouseover="hideImage(this)" onmouseout="showImage(this)"<?php endif; ?> width="<?php echo $imgWidth ?>" height="<?php echo $imgHeight ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
                 </a>
                 
                 <div id="productimgover<?php echo $_product->getId()?>" style="display: none;"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(64); ?>" width="64" height="64" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></div>
@@ -157,14 +159,18 @@
             jQuery('#fancybox'+id).trigger('click');
         }
         function setAjaxData(data,iframe,id){
+            console.log('0');
             if(data.status == 'ERROR'){
                 alert(data.message);
             }else{
                 if(jQuery('.block-cart')){
                     jQuery('.block-cart').replaceWith(data.sidebar);
                 }
-                if(jQuery('.header .block-cart-header')){
-                    jQuery('.header .block-cart-header').replaceWith(data.topcart);
+                /* FLOCK EDIT .header to #top */
+                console.log('1');
+                if(jQuery('#top .block-cart-header')){
+                    console.log('2');
+                    jQuery('#top .block-cart-header').replaceWith(data.topcart);
                 } 
                 jQuery.fancybox.close();          
                 //setAjaxData(data,false,id);

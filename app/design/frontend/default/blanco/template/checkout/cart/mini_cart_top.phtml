@@ -2,7 +2,7 @@
 <div class="block block-cart-header">
     <?php $_cartQty = $this->getSummaryCount(); ?>
     <div class="block-content">
-        <span class="button-show"><a href="<?php echo $this->getUrl('checkout/cart')?>"><?php echo $this->__('Shopping Cart')?></a>
+        <span class="button-show"><a href="<?php echo $this->getUrl('checkout/cart')?>"><?php echo $this->__('Basket')?></a> <!-- FLOCK EDIT
         - <?php if ($this->canApplyMsrp()): ?>
             <span class="map-cart-sidebar-total"><?php echo $this->__('ORDER TOTAL WILL BE DISPLAYED BEFORE YOU SUBMIT THE ORDER'); ?></span>
         <?php else: ?>
@@ -10,7 +10,12 @@
             <?php if ($_subtotalInclTax = $this->getSubtotalInclTax()): ?>
                 <?php echo Mage::helper('checkout')->formatPrice($_subtotalInclTax) ?> <?php echo Mage::helper('tax')->getIncExcText(true) ?>
             <?php endif; ?>
-        <?php endif; ?> 
+        <?php endif; ?> -->
+        <?php 
+        /* FLOCK EDIT added all this */
+        $items = (int)Mage::helper('checkout/cart')->getQuote()->getItemsQty();
+        if ($items > 0) echo "(<span class='itemcount'>".$items."</span>)";
+        ?>
         </span>
     <?php if($_cartQty && $this->isPossibleOnepageCheckout()): ?>
     <div class="actions">
@@ -47,7 +52,7 @@
 
     <?php else: ?>
         <div id="header-items" class="empty">
-            <p class="empty"><?php echo $this->__('You have no items in your shopping cart.') ?></p>
+            <p class="empty"><?php echo $this->__('You have no items in your basket.') ?></p>
         </div>
     <?php endif ?>
     </div>
